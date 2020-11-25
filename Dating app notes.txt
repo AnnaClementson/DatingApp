@@ -1,0 +1,53 @@
+Dating app project notes
+
+--shortcuts
+ctrl shift ' - terminal
+ctrl + . - quick fix
+prop
+propfull
+
+cd API to go into the API
+
+//GIT 
+
+git ignore 
+to remove the bin file as they are always created on build
+add file names to the bottom of the file if you dont want 
+them to be public example appsettings.json (api keys)
+
+https://localhost:5001/weatherforecast
+
+httpGET is the end point
+the request to API 
+it returns the results of httpGET to an array
+
+program.cs is starting file 
+runs the method in the public class
+
+configuration information is in the appsettings.json and appsettings.development.json
+program class calls startup.cs class 
+
+configuration - dependancies injection container 
+if you want to make class or service avaialble to other areas of our
+ application you can add them to the configuration class 
+
+-- dotnet watch run 
+
+--Creating the first entity
+
+entity framework is a language that microsoft created to deal with 
+database queries and variables for us 
+
+entity framework uses LINQ queries that are used to manipulate the database 
+without using sql queries
+includes automatic conventions 
+
+--syncronus code
+means the request to the database will be blocked (blocking the thread)
+until the request has been fulfiled
+
+--asyncronus code
+
+
+
+
