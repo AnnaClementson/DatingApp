@@ -1,12 +1,111 @@
 Dating app project notes
 
 --shortcuts
+ctrl shift p - command palette
 ctrl shift ' - terminal
 ctrl + . - quick fix
 prop
 propfull
 
-cd API to go into the API
+cd api
+-- dotnet watch run 
+
+https://localhost:5001/api/users
+
+http://localhost:4200/
+
+notes
+cd api
+dotnet watch run 
+cd client 
+ng serve
+
+git init - initialises a repository when your instead the directory
+
+commiting code - 
+changes click the plus button and it will stage your changes 
+give a commit message 
+then the three dots and choose commit and then commit
+push to 
+remote repository
+
+adding new information to the database 
+stop the migration by writing in the terminal 
+>dotnet ef migrations remove
+start a new migration 
+>dotnet ef migrations add UserPasswordAdded
+
+
+using 'this' to gain access to any class 
+
+when using angular you can use a structural directive to loop over 
+
+structural directive
+
+--install angular cli 
+
+npm install -g @angular/cli 
+ng new client 
+angular routing y
+css style format
+
+check application is working cd client 
+ng serve - starts the angular development server
+check it by going to localhost:4200
+
+remove code from app.component.html
+interpolation changing title to data app in app.compontent.ts file
+use {{title}} in html file h1 tag
+
+--app.module.ts 
+declares the components they are available in our application 
+in the declaration array
+
+imports other angular modules to use in the application
+browser module - displays our app in browser for example
+
+app.module.ts 
+import the module for httpclient 
+import { HttpClientModule } from '@angular/common/http';
+in imports put - HttpClientModule
+
+--observable 
+the response body 
+
+--adding cors 
+blocks http request that is not in the same origin 
+
+https://localhost:5001/api/users
+
+--enable angular to be run on https
+add sll certificate into the client folder
+
+--authentication
+
+--controller
+
+every controller shares similar properties 
+they will have a controller property and a route property
+ and they always inherite at the controller base
+
+create a base API controller that will save us from repeating ourselves in each 
+controller 
+which specify the api controller and route then you specify
+ the baseapi controller rather than controller base 
+
+when you inherite from other classes then you inherit
+ all its attributes methods and properties 
+
+--creating a new controller to manage user login and register 
+
+
+--DTO Data transfer objects
+
+password needs to be an object to recieve the properties in the body of our request
+you can hide properties 
+flatten objects if they are nested
+circlar reference exceptions?
+
 
 //GIT 
 
@@ -30,8 +129,6 @@ program class calls startup.cs class
 configuration - dependancies injection container 
 if you want to make class or service avaialble to other areas of our
  application you can add them to the configuration class 
-
--- dotnet watch run 
 
 --Creating the first entity
 
