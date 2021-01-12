@@ -7,14 +7,24 @@ ctrl + . - quick fix
 prop
 propfull
 
-cd api
--- dotnet watch run 
+
+angular snipits and help
+
+a-ngmodel - shortcut for angular 2 way binding
+[] square brackets typically used for recieving data from our binding
+() submitting data 
+2 way binding when you see both [()]
+
+service - is a singleton which means it will live and not be distroyeduntil the service is stopped so the app has been closed or user has navigated always
+components - are destroeyed as soon as they are not in use
+observable - is lazy it doesnt do anything until you subscribe to it
+
 
 https://localhost:5001/api/users
 
 http://localhost:4200/
 
-notes
+terminal
 cd api
 dotnet watch run 
 cd client 
@@ -149,6 +159,17 @@ until the request has been fulfiled
 
 --asyncronus code
 
+
+--terminal
+Using the terminal to generate a nav bar 
+cd client 
+ng generate -h to help show what can be generated (or use g for short)
+create component by (c is short for component)
+change src to app by 
+cd ser/app
+if you want to skip testing then use --skip-tests
+create component by 
+ng g c 
 
 
 

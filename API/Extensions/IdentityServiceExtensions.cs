@@ -21,7 +21,7 @@ namespace API.Extensions
                     ValidateAudience = false, //Angular application 
                 };
             });
-            return services
+            return services;
         }
     }
 }
