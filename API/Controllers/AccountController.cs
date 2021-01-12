@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using API.Data;
 using API.DTOs;
 using API.Entities;
+using API.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -12,17 +13,20 @@ namespace API.Controllers
     public class AccountController : BaseApiController
     {
         private readonly DataContext _context;
-        public AccountController(DataContext context)
+        private readonly ITokenService _tokenService;
+        public AccountController(DataContext context, ITokenService tokenService)
         {
+            _tokenService = tokenService;
             _context = context;
         }
 
         [HttpPost("register")]
-        public async Task<ActionResult<AppUser>> Register(RegisterDto registerDto)
+        //return userDTO now instead of app user
+        public async Task<ActionResult<UserDto>> Register(RegisterDto registerDto)
         {   //Check to see if username exsists on sign up
             if (await UserExists(registerDto.Username)) return BadRequest("Username is taken");
-            
-            
+
+
             //provides us with a hashing algorithm to create a password hash
             using var hmac = new HMACSHA512();
 
@@ -33,15 +37,20 @@ namespace API.Controllers
                 PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(registerDto.Password)),
                 PasswordSalt = hmac.Key
             };
-        //Tracking in entity framework
-        _context.Users.Add(user);
-        //save user in users table
-        await _context.SaveChangesAsync();
-        return user;
+            //Tracking in entity framework
+            _context.Users.Add(user);
+            //save user in users table
+            await _context.SaveChangesAsync();
+            //return userDto information with a token of authentication rather than the salt etc
+            return new UserDto
+            {
+                Username = user.UserName,
+                Token = _tokenService.CreateToken(user)
+            };
         }
 
         [HttpPost("login")]
-        public async Task<ActionResult<AppUser>> Login(LoginDto loginDto)
+        public async Task<ActionResult<UserDto>> Login(LoginDto loginDto)
         {
             var user = await _context.Users.SingleOrDefaultAsync(x => x.UserName == loginDto.Username);
             //if user is null return error
@@ -54,10 +63,14 @@ namespace API.Controllers
             for (int i = 0; i < computedHash.Length; i++)
             {
                 if (computedHash[i] != user.PasswordHash[i])
-                return Unauthorized("Invalid password");
+                    return Unauthorized("Invalid password");
             }
 
-            return user;
+              return new UserDto
+            {
+                Username = user.UserName,
+                Token = _tokenService.CreateToken(user)
+            };
         }
 
         private async Task<bool> UserExists(string username)

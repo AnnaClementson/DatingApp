@@ -82,6 +82,10 @@ add sll certificate into the client folder
 
 --authentication
 
+to make sure your endpoints are protected with autorization 
+you can give them an authorize attribute 
+
+
 --controller
 
 every controller shares similar properties 
