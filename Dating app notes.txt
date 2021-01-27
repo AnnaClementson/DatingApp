@@ -1,5 +1,8 @@
 Dating app project notes
 
+jane password
+dave password
+
 --shortcuts
 ctrl shift p - command palette
 ctrl shift ' - terminal
@@ -8,8 +11,27 @@ prop
 propfull
 div.classname - shortcut for div making
 
+--terminal
+cd api
+dotnet watch run 
+cd client 
+ng serve
 
-angular snipits and help
+--terminal shortcuts
+cd .. up a level 
+
+Using the terminal to generate a nav bar 
+cd client 
+ng generate -h to help show what can be generated (or use g for short)
+create component by (c is short for component)
+change src to app by 
+cd .. to get out of folders and change directory to datingapp/client/src/app
+cd src/app
+if you want to skip testing then use --skip-tests
+create component by 
+ng g c 
+
+--angular snipits and help
 
 a-ngmodel - shortcut for angular 2 way binding
 [] square brackets typically used for recieving data from our binding
@@ -25,11 +47,7 @@ https://localhost:5001/api/users
 
 http://localhost:4200/
 
-terminal
-cd api
-dotnet watch run 
-cd client 
-ng serve
+
 
 git init - initialises a repository when your instead the directory
 
@@ -163,18 +181,6 @@ means the request to the database will be blocked (blocking the thread)
 until the request has been fulfiled
 
 --asyncronus code
-
-
---terminal
-Using the terminal to generate a nav bar 
-cd client 
-ng generate -h to help show what can be generated (or use g for short)
-create component by (c is short for component)
-change src to app by 
-cd ser/app
-if you want to skip testing then use --skip-tests
-create component by 
-ng g c 
 
 ----Observables 
 
