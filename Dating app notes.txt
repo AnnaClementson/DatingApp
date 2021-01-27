@@ -6,6 +6,7 @@ ctrl shift ' - terminal
 ctrl + . - quick fix
 prop
 propfull
+div.classname - shortcut for div making
 
 
 angular snipits and help
@@ -48,9 +49,13 @@ start a new migration
 
 using 'this' to gain access to any class 
 
+--structural directives examples
+
 when using angular you can use a structural directive to loop over 
 
-structural directive
+*ngIf to set as logged in to hide it when logging in 
+
+
 
 --install angular cli 
 
@@ -171,5 +176,17 @@ if you want to skip testing then use --skip-tests
 create component by 
 ng g c 
 
+----Observables 
 
+New standard for managing async data included in ES7 
+Observables are lazy collections of multiple values over time 
+observables are like a newsletter, only people subscribed recieve it 
 
+promise vs observables 
+promise a single future value, not lazy, can not cancel
+observable, emits multiple values over time, lazy (not until subscribed), able to cancel, can use with map, filter, reduce etc 
+
+map function applies a function to everything in the array 
+what is an asyncn pipe?
+to unsubsribed from an observables use an async pipe then it unsubscribes automatically?
+a http request doesnt need to be unsubscribed from 
